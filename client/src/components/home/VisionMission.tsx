@@ -20,7 +20,7 @@ const VisionMission: React.FC = () => {
               </svg>
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1620332372374-d3072cc44c36?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                  src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
                   alt="Silver Craftsmanship" 
                   className="w-full h-full object-cover"
                 />
