@@ -9,15 +9,7 @@ const navLinks = [
   { name: 'About Mansi', path: '/about' },
   { name: 'Brand', path: '/brand' },
   { name: 'Collection', path: '/collection' },
-  { name: 'Career', path: '/career' },
   { name: 'Contact', path: '/contact' },
-];
-
-const socialLinks = [
-  { icon: 'fab fa-instagram', url: '#' },
-  { icon: 'fab fa-facebook-f', url: '#' },
-  { icon: 'fab fa-pinterest-p', url: '#' },
-  { icon: 'fab fa-linkedin-in', url: '#' },
 ];
 
 const Navbar: React.FC = () => {
@@ -54,32 +46,20 @@ const Navbar: React.FC = () => {
             </div>
           </Link>
           
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8 items-center">
-            {navLinks.map((link) => (
-              <Link 
-                key={link.path} 
-                to={link.path} 
-                className={`uppercase text-sm font-medium hover:text-gold transition-colors ${location.pathname === link.path ? 'text-gold' : ''}`}
-              >
-                {link.name}
-              </Link>
-            ))}
+          {/* Desktop Navigation - Centered */}
+          <nav className="hidden md:flex items-center justify-center flex-1 mx-4">
+            <div className="flex space-x-8">
+              {navLinks.map((link) => (
+                <Link 
+                  key={link.path} 
+                  to={link.path} 
+                  className={`uppercase text-sm font-medium hover:text-gold transition-colors ${location.pathname === link.path ? 'text-gold' : ''}`}
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
           </nav>
-          
-          {/* Social Icons */}
-          <div className="hidden md:flex space-x-3">
-            {socialLinks.map((social, index) => (
-              <a 
-                key={index}
-                href={social.url} 
-                className="w-8 h-8 rounded-full border border-darkgray flex items-center justify-center hover:border-gold hover:text-gold transition-colors"
-                aria-label={`Visit our ${social.icon.replace('fab fa-', '')}`}
-              >
-                <i className={`${social.icon} text-sm`}></i>
-              </a>
-            ))}
-          </div>
           
           {/* Mobile Menu Button */}
           <button 
@@ -109,18 +89,6 @@ const Navbar: React.FC = () => {
               >
                 {link.name}
               </Link>
-            ))}
-          </div>
-          <div className="flex space-x-3 pb-4">
-            {socialLinks.map((social, index) => (
-              <a 
-                key={index}
-                href={social.url} 
-                className="w-8 h-8 rounded-full border border-darkgray flex items-center justify-center hover:border-gold hover:text-gold transition-colors"
-                aria-label={`Visit our ${social.icon.replace('fab fa-', '')}`}
-              >
-                <i className={`${social.icon} text-sm`}></i>
-              </a>
             ))}
           </div>
         </motion.div>

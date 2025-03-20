@@ -14,7 +14,6 @@ import Home from "@/pages/Home";
 import About from "@/pages/About";
 import Brand from "@/pages/Brand";
 import Collection from "@/pages/Collection";
-import Career from "@/pages/Career";
 import Contact from "@/pages/Contact";
 import NotFound from "@/pages/not-found";
 
@@ -32,7 +31,6 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/brand" element={<Brand />} />
               <Route path="/collection" element={<Collection />} />
-              <Route path="/career" element={<Career />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
