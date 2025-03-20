@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import Container from '@/components/ui/container';
-import { LogoIcon } from '@/assets/icons';
+import logoImage from '@/assets/images/logo.svg';
 
 const Footer: React.FC = () => {
   return (
@@ -10,10 +11,18 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
             <Link to="/" className="flex items-center mb-6">
-              <LogoIcon className="h-12 w-12" />
+              <motion.img 
+                src={logoImage} 
+                alt="Mansi Silver Logo" 
+                className="h-12 w-12 filter brightness-200"
+                whileHover={{ 
+                  rotate: 360,
+                  transition: { duration: 1, ease: "easeInOut" }
+                }}
+              />
               <div className="ml-2">
-                <h1 className="font-playfair text-xl font-semibold text-white">Mansi</h1>
-                <p className="text-xs text-gold italic">Redefine your look</p>
+                <h1 className="font-playfair text-xl font-semibold text-white tracking-wider">MANSI SILVER</h1>
+                <p className="text-xs text-gray-400 italic">Timeless Elegance Since 1990</p>
               </div>
             </Link>
             <p className="text-gray-400 mb-6">
