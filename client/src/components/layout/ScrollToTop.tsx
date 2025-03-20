@@ -1,26 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence, animate } from "framer-motion";
 
 const ScrollToTop: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+      setIsVisible(window.pageYOffset > 300);
     };
 
-    window.addEventListener('scroll', toggleVisibility);
-    return () => window.removeEventListener('scroll', toggleVisibility);
+    window.addEventListener("scroll", toggleVisibility);
+    return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
+  const smoothScrollToTop = () => {
+    animate(window.scrollY, 0, {
+      duration: 1.5, // Adjust for slower/smoother effect
+      ease: "easeInOut",
+      onUpdate: (value) => window.scrollTo(0, value),
     });
   };
 
@@ -32,8 +29,8 @@ const ScrollToTop: React.FC = () => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed bottom-6 right-6 w-10 h-10 bg-gold text-white flex items-center justify-center rounded-sm z-50"
-          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 w-10 h-10 bg-gold text-gray-400 flex items-center justify-center rounded-sm z-50"
+          onClick={smoothScrollToTop}
           aria-label="Scroll to top"
         >
           <i className="fas fa-chevron-up"></i>
