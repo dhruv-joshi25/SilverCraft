@@ -46,8 +46,8 @@ const Navbar: React.FC = () => {
             </div>
           </Link>
           
-          {/* Desktop Navigation - Centered */}
-          <nav className="hidden md:flex items-center justify-center flex-1 mx-4">
+          {/* Desktop Navigation - Right aligned */}
+          <nav className="hidden md:flex items-center ml-auto">
             <div className="flex space-x-8">
               {navLinks.map((link) => (
                 <Link 

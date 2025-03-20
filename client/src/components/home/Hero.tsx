@@ -92,17 +92,19 @@ const Hero: React.FC = () => {
           transition={{ duration: 0.8 }}
         >
           <h1 className="font-playfair text-5xl md:text-6xl font-bold mb-6">
-            {slides[selectedIndex].title}
+            Crafting Timeless Silver Elegance
           </h1>
           <p className="text-lg mb-8">
-            {slides[selectedIndex].description}
+            Exquisite handcrafted silver jewelry since 1999, where tradition meets innovation.
           </p>
-          <Link 
-            to="/collection" 
-            className="inline-block px-8 py-3 bg-gold text-white font-medium uppercase tracking-wider hover:bg-opacity-90 transition-all"
-          >
-            Explore Collections
-          </Link>
+          <div className="bg-black bg-opacity-30 inline-block p-3">
+            <Link 
+              to="/collection" 
+              className="inline-block px-8 py-3 bg-gold text-white font-medium uppercase tracking-wider hover:bg-opacity-90 transition-all"
+            >
+              Explore Collections
+            </Link>
+          </div>
           
           {/* Slider dots */}
           <div className="flex items-center space-x-2 mt-8">
