@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Hero from '@/components/home/Hero';
+import BrandIntro from '@/components/home/BrandIntro';
 import CollectionsPreview from '@/components/home/CollectionsPreview';
 import AboutSection from '@/components/home/AboutSection';
 import VisionMission from '@/components/home/VisionMission';
@@ -8,6 +9,7 @@ import CoreValues from '@/components/home/CoreValues';
 import QualityPolicy from '@/components/home/QualityPolicy';
 import ManagementTeam from '@/components/home/ManagementTeam';
 import FeaturedCollection from '@/components/home/FeaturedCollection';
+import CraftsmanshipStory from '@/components/home/CraftsmanshipStory';
 import CTASection from '@/components/home/CTASection';
 import ContactSection from '@/components/home/ContactSection';
 
@@ -20,6 +22,7 @@ const Home: React.FC = () => {
       transition={{ duration: 0.5 }}
     >
       <Hero />
+      <BrandIntro />
       <CollectionsPreview />
       <AboutSection />
       <VisionMission />
@@ -27,6 +30,7 @@ const Home: React.FC = () => {
       <QualityPolicy />
       <ManagementTeam />
       <FeaturedCollection />
+      <CraftsmanshipStory />
       <CTASection />
       <ContactSection />
     </motion.div>
