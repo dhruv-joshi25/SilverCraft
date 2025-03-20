@@ -1,19 +1,30 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import Container from "@/components/ui/container";
 import logoImage from "../../assets/images/logo.png"; // Ensure path is correct
 
 const Footer: React.FC = () => {
+  const navigate = useNavigate();
+
+  // Custom navigation handler that scrolls to top when navigating
+  const handleNavigation = (path: string) => {
+    navigate(path);
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <footer className="bg-black text-white pt-16 pb-8">
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 text-center md:text-left">
           {/* Logo & About Section */}
           <div className="px-6 md:px-12">
-            <Link
-              to="/"
-              className="flex items-center justify-center md:justify-start mb-6"
+            <div
+              onClick={() => handleNavigation("/")}
+              className="flex items-center justify-center md:justify-start mb-6 cursor-pointer"
             >
               <motion.img
                 src={logoImage}
@@ -32,7 +43,7 @@ const Footer: React.FC = () => {
                   Timeless Elegance Since 1990
                 </p>
               </div>
-            </Link>
+            </div>
             <p className="text-gray-400">
               With over two decades of expertise, we specialize in crafting
               exceptional, handcrafted silver jewelry that celebrates
@@ -45,52 +56,44 @@ const Footer: React.FC = () => {
             <h3 className="text-lg font-bold mb-6">QUICK LINKS</h3>
             <ul className="space-y-3">
               <li>
-                <Link
-                  to="/"
-                  className="text-gray-400 hover:text-white transition-colors"
+                <a
+                  onClick={() => handleNavigation("/")}
+                  className="text-gray-400 hover:text-white transition-colors cursor-pointer"
                 >
                   HOME
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
-                  to="/about"
-                  className="text-gray-400 hover:text-white transition-colors"
+                <a
+                  onClick={() => handleNavigation("/about")}
+                  className="text-gray-400 hover:text-white transition-colors cursor-pointer"
                 >
                   ABOUT MANSI
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
-                  to="/brand"
-                  className="text-gray-400 hover:text-white transition-colors"
+                <a
+                  onClick={() => handleNavigation("/brand")}
+                  className="text-gray-400 hover:text-white transition-colors cursor-pointer"
                 >
                   BRAND
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
-                  to="/collection"
-                  className="text-gray-400 hover:text-white transition-colors"
+                <a
+                  onClick={() => handleNavigation("/collection")}
+                  className="text-gray-400 hover:text-white transition-colors cursor-pointer"
                 >
                   COLLECTION
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
-                  to="/career"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  CAREER
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/contact"
-                  className="text-gray-400 hover:text-white transition-colors"
+                <a
+                  onClick={() => handleNavigation("/contact")}
+                  className="text-gray-400 hover:text-white transition-colors cursor-pointer"
                 >
                   CONTACT
-                </Link>
+                </a>
               </li>
             </ul>
           </div>

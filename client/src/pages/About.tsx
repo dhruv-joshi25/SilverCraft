@@ -8,21 +8,27 @@ import ManagementTeam from '@/components/home/ManagementTeam';
 
 const PageBanner = () => {
   return (
-    <section 
+    <section
       className="pt-40 pb-20 bg-cover bg-center relative"
-      style={{ backgroundImage: `url('https://images.unsplash.com/photo-1620332372374-d3072cc44c36?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')` }}
+      style={{
+        backgroundImage: `url('https://images.pexels.com/photos/46160/field-clouds-sky-earth-46160.jpeg?cs=srgb&dl=pexels-pixabay-46160.jpg&fm=jpg')`,
+      }}
     >
       <div className="absolute inset-0 bg-black bg-opacity-60"></div>
       <Container className="relative z-10">
         <div className="text-center">
-          <h1 className="font-playfair text-5xl text-white font-bold mb-6">ABOUT MANSI</h1>
+          <h1 className="font-playfair text-5xl text-white font-bold mb-6">
+            ABOUT MANSI
+          </h1>
           <nav className="flex justify-center">
             <ol className="flex items-center">
               <li className="text-gray-300">
-                <a href="/" className="hover:text-gold">Home</a>
+                <a href="/" className="hover:text-gold">
+                  Home
+                </a>
               </li>
               <li className="mx-2 text-gray-300">/</li>
-              <li className="text-gold">About Mansi</li>
+              <li className="text-gray-300">About Mansi</li>
             </ol>
           </nav>
         </div>

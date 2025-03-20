@@ -8,22 +8,28 @@ import useEmblaCarousel from 'embla-carousel-react';
 const slides = [
   {
     id: 1,
-    image: 'https://images.unsplash.com/photo-1619119069152-a2b331eb392a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80',
-    title: 'Crafting Timeless Silver Elegance',
-    description: 'Exquisite handcrafted silver jewelry since 1999, where tradition meets innovation.'
+    image:
+      "https://images.unsplash.com/photo-1619119069152-a2b331eb392a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80",
+    title: "Crafting Timeless Silver Elegance",
+    description:
+      "Exquisite handcrafted silver jewelry since 1999, where tradition meets innovation.",
   },
   {
     id: 2,
-    image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80',
-    title: 'Premium Silver Craftsmanship',
-    description: 'Each piece tells a story of excellence, artistry, and meticulous attention to detail.'
+    image:
+      "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80",
+    title: "Premium Silver Craftsmanship",
+    description:
+      "Each piece tells a story of excellence, artistry, and meticulous attention to detail.",
   },
   {
     id: 3,
-    image: 'https://images.unsplash.com/photo-1535632066274-1540d10a280a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80',
-    title: 'Elegance in Every Detail',
-    description: 'Discover our unique collection that combines traditional techniques with contemporary designs.'
-  }
+    image:
+      "https://images.unsplash.com/photo-1631561381360-75e4b03ef9b0?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    title: "Elegance in Every Detail",
+    description:
+      "Discover our unique collection that combines traditional techniques with contemporary designs.",
+  },
 ];
 
 const Hero: React.FC = () => {
@@ -111,7 +117,7 @@ const Hero: React.FC = () => {
             {scrollSnaps.map((_, index) => (
               <button
                 key={index}
-                className={`w-3 h-3 rounded-full transition-colors duration-300 ${index === selectedIndex ? 'bg-gold' : 'bg-white bg-opacity-50'}`}
+                className={`w-3 h-3 rounded-full transition-colors duration-300 ${index === selectedIndex ? 'bg-gray-400' : 'bg-white bg-opacity-70'}`}
                 onClick={() => scrollTo(index)}
                 aria-label={`Go to slide ${index + 1}`}
               />
