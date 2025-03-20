@@ -84,7 +84,7 @@ const Hero: React.FC = () => {
       </div>
       
       {/* Content overlay */}
-      <Container className="h-full flex items-center z-20 relative">
+      <Container className="absolute inset-0 h-full flex items-center z-20">
         <motion.div 
           className="max-w-xl text-white"
           initial={{ opacity: 0, y: 20 }}
