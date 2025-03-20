@@ -92,10 +92,10 @@ const Hero: React.FC = () => {
           transition={{ duration: 0.8 }}
         >
           <h1 className="font-playfair text-5xl md:text-6xl font-bold mb-6">
-            Crafting Timeless Silver Elegance
+            {slides[selectedIndex].title}
           </h1>
           <p className="text-lg mb-8">
-            Exquisite handcrafted silver jewelry since 1999, where tradition meets innovation.
+            {slides[selectedIndex].description}
           </p>
           <div className="bg-black bg-opacity-30 inline-block p-3">
             <Link 
