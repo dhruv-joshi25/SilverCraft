@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Container from '@/components/ui/container';
-import { LogoIcon } from '@/assets/icons';
+import logoImage from '@/assets/images/logo.svg';
 
 const navLinks = [
   { name: 'Home', path: '/' },
@@ -39,10 +39,15 @@ const Navbar: React.FC = () => {
       <Container>
         <div className="flex justify-between items-center py-4">
           <Link to="/" className="flex items-center">
-            <LogoIcon className="h-12 w-12" />
+            <motion.img 
+              src={logoImage} 
+              alt="Mansi Silver Logo" 
+              className="h-12 w-12"
+              whileHover={{ rotate: [0, 10, -10, 0], transition: { duration: 0.5 } }}
+            />
             <div className="ml-2">
-              <h1 className="font-playfair text-xl font-semibold text-darkgray">Mansi</h1>
-              <p className="text-xs text-gold italic">Redefine your look</p>
+              <h1 className="font-playfair text-xl font-semibold text-darkgray tracking-wider">MANSI SILVER</h1>
+              <p className="text-xs text-gray-500 italic">Timeless Elegance Since 1990</p>
             </div>
           </Link>
           

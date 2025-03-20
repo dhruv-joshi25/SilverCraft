@@ -30,7 +30,6 @@ const Home: React.FC = () => {
       <QualityPolicy />
       <ManagementTeam />
       <FeaturedCollection />
-      <CraftsmanshipStory />
       <CTASection />
       <ContactSection />
     </motion.div>
