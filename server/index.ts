@@ -1,6 +1,7 @@
 import express, { NextFunction, type Request, Response } from "express";
 import { registerRoutes } from "./routes";
-import { log, serveStatic, setupVite } from "./vite";
+import { log, serveStatic, setupVite } from "./vite"; // Keeping original imports
+import path from "path";
 
 const app = express();
 app.use(express.json());
@@ -50,18 +51,25 @@ app.use((req, res, next) => {
     throw err;
   });
 
-  // importantly only setup vite in development and after
-  // setting up all the other routes so the catch-all route
-  // doesn't interfere with the other routes
-  if (app.get("env") === "development") {
+  // ✅ Vercel Optimization (Skip Vite & Static for Production)
+  if (process.env.NODE_ENV === "development") {
     await setupVite(app, server);
   } else {
     serveStatic(app);
   }
 
-  // ALWAYS serve the app on port 5000
-  // this serves both the API and the client.
-  // It is the only port that is not firewalled.
+  // ✅ Keep Static & React Handling for Local Only
+  if (process.env.NODE_ENV === "production") {
+    app.use(express.static(path.join(__dirname, "../client/dist")));
+
+    app.get("*", (req, res) => {
+      if (!req.path.startsWith("/api")) {
+        res.sendFile(path.join(__dirname, "../client/dist/index.html"));
+      }
+    });
+  }
+
+  // ✅ Vercel doesn't use `listen()` in production
   if (process.env.NODE_ENV !== "production") {
     const port = 5000;
     server.listen(
@@ -74,5 +82,7 @@ app.use((req, res, next) => {
         log(`serving on port ${port}`);
       }
     );
+  } else {
+    module.exports = app; // ✅ This is what Vercel requires
   }
 })();
