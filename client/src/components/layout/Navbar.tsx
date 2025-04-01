@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import Container from "@/components/ui/container";
 import logoImage from "../../assets/images/logo.png";
@@ -18,31 +18,23 @@ const Navbar: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Custom navigation handler that scrolls to top when navigating
+  // Function to handle navigation (same behavior as footer links)
   const handleNavigation = (path: string) => {
-    navigate(path);
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    if (location.pathname !== path) {
+      navigate(path);
+    }
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    setIsOpen(false); // Close mobile menu after navigation
   };
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 50);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  useEffect(() => {
-    setIsOpen(false);
-  }, [location]);
 
   return (
     <header
@@ -52,6 +44,7 @@ const Navbar: React.FC = () => {
     >
       <Container>
         <div className="flex justify-between items-center py-4">
+          {/* Logo - Clicking it navigates to home */}
           <div
             onClick={() => handleNavigation("/")}
             className="flex items-center cursor-pointer"
@@ -75,11 +68,11 @@ const Navbar: React.FC = () => {
             </div>
           </div>
 
-          {/* Desktop Navigation - Right aligned */}
+          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center ml-auto">
             <div className="flex space-x-8">
               {navLinks.map((link) => (
-                <a
+                <span
                   key={link.path}
                   onClick={() => handleNavigation(link.path)}
                   className={`uppercase text-sm font-medium hover:text-gold transition-colors cursor-pointer ${
@@ -87,7 +80,7 @@ const Navbar: React.FC = () => {
                   }`}
                 >
                   {link.name}
-                </a>
+                </span>
               ))}
             </div>
           </nav>
@@ -124,7 +117,7 @@ const Navbar: React.FC = () => {
         >
           <div className="pt-2 pb-4 space-y-3">
             {navLinks.map((link) => (
-              <a
+              <span
                 key={link.path}
                 onClick={() => handleNavigation(link.path)}
                 className={`block py-2 uppercase text-sm font-medium hover:text-gold transition-colors cursor-pointer ${
@@ -132,7 +125,7 @@ const Navbar: React.FC = () => {
                 }`}
               >
                 {link.name}
-              </a>
+              </span>
             ))}
           </div>
         </motion.div>
